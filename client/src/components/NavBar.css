@@ -1,0 +1,29 @@
+.customCanvas{
+    background-color: #54647f !important;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    max-width: 80% !important;
+}
+
+.customCanvasHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: #25353d !important;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+
+}
+
+.single-link{
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 0.8rem;
+}
+
+.single-link:hover{
+    background-color: #aca696 !important;
+}

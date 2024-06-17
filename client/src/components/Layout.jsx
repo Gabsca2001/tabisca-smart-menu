@@ -1,12 +1,16 @@
 import React from 'react'
-import NavbarCustom from './NavbarCustom'
+import Header from './Header'
+import '../assets/styles/Layout.css'
+import Footer from './Footer'
 
 const Layout = ({children}) => {
   return (
-    <div>
-        <NavbarCustom />
-        <div>Layout</div>
+    <div id="layout">
+        <Header />
+        <div style={{height: '8rem'}}>
+        </div>
         {children}
+        <Footer />
     </div>
   )
 }

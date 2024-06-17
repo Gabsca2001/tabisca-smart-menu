@@ -1,0 +1,116 @@
+.customCanvas {
+    background-color: #54647f !important;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    max-width: 80% !important;
+}
+
+.customCanvasHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: #25353d !important;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+
+}
+
+.single-link {
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 0.8rem;
+}
+
+.single-link:hover {
+    background-color: #aca696 !important;
+}
+
+@media (min-width: 1020px) {
+    .tabContainer {
+        max-width: 60% !important;
+    }
+}
+
+.tabContainer {
+    width: 90%;
+    background-color: #84aca2;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    position: fixed;
+    top: 5rem;
+    z-index: 100;
+}
+
+.tabElement {
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: 0.8rem !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.card-category {
+    width: 100%;
+    border-radius: 2rem;
+    background-color: #ffffff !important;
+    color: white;
+    overflow: hidden;
+}
+
+.card-category-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8rem;
+}
+
+.card-category-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-category-body {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Playwrite TZ', sans-serif;
+    color: #494242;
+}
+
+.card-item {
+
+    background-color: #ffffff !important;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100% !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.card-item-header {
+    border-radius: 0.8rem;
+}
+
+.card-item-header img {
+    width: 7rem;
+    height: 6rem;
+    border-radius: 1.8rem;
+    object-fit: cover;
+}
+
+.itemButton {
+    margin-top: 1rem;
+    background: rgb(132, 172, 162);
+    background: linear-gradient(90deg, rgba(132, 172, 162, 1) 0%, rgba(34, 105, 154, 1) 100%);
+    color: white !important;
+    border-radius: 0.8rem;
+    padding: 0.5rem 1rem;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: all 0.3s ease;
+    font-weight: 700;
+}

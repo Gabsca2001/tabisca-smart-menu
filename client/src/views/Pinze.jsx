@@ -5,6 +5,7 @@ import ItemComponent from '../components/ItemComponent'
 import { Col, Container, Row } from 'react-bootstrap'
 import { pinzeList } from '../utils/food'
 
+
 const Pinze = () => {
 
     return (

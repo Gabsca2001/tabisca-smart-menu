@@ -4,8 +4,10 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { categories } from '../utils/categories'
 import '../assets/styles/Header.css'
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import { UIContext, AuthContext } from '../context/context';
+import { useContext } from 'react';
+import {auth} from '../services/db'
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
 
@@ -14,15 +16,23 @@ const Header = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [value, setValue] = React.useState(0);
+  const { setSelectedItem } = useContext(UIContext);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   const handleClickCanvas = (index) => {
-    setValue(index)
+    setSelectedItem(index)
     setShow(false)
+  }
+
+  const handleLogout = async() => {
+    try {
+      await signOut(auth);
+      setCurrentUser(null);
+    } catch (err) {
+      console.error(err);
+    }
+
   }
 
 
@@ -60,33 +70,28 @@ const Header = () => {
                 </Nav.Link>
               </div>
             ))}
+            {
+              currentUser ? (
+                <div>
+                  <Nav.Link as={Link} to='/dashboard' className='link-body-emphasis mb-3 single-link' style={{ fontFamily: "Montserrat" }}>
+                    <i className='bi bi-person'></i>
+                    <span className='ms-4 text-light'>Dashboard</span>
+                  </Nav.Link>
+                  <Button onClick={handleLogout}>Logout</Button>
+                </div>
+              ) : (
+                <Nav.Link as={Link} to='/login' className='link-body-emphasis mb-3 single-link' style={{ fontFamily: "Montserrat" }}>
+                  <i className='bi bi-box-arrow-in-right'></i>
+                  <span className='ms-4 text-light'>Login</span>
+                </Nav.Link>
+              )
+            }
+
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
 
-      <Container className='d-flex flex-column align-items-center justify-content-center'>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          sx={{ "& .Mui-selected": { backgroundColor: '#1f1c3e', color: 'white' }, "& .MuiTabs-indicator": { backgroundColor: 'white'}}}
-          textColor='white'
-          scrollButtons
-          allowScrollButtonsMobile
-          aria-label="scrollable force tabs example"
-          className='tabContainer'
-        >
-          {categories.map((category, index) => (
-            <Tab 
-              label={category.name} 
-              key={index} 
-              component={Link}
-              to={category.link}
-              className='tabElement' 
-            />
-          ))}
-        </Tabs>
-      </Container>
+
     </>
   )
 }

@@ -7,5 +7,4 @@ export const categories = [
     {name: 'Pizze classiche', link: '/pizze-classiche', iconLink: '/assets/icons/pizza.png'},
     {name: 'Pizze gourmet', link: '/pizze-gourmet', iconLink: '/assets/icons/star.png'},
     {name: 'Bibite', link: '/category5', iconLink: '/assets/icons/soft-drink.png'},
-
   ]

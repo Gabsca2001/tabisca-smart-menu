@@ -6,17 +6,18 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { starterList } from '../utils/food'
 import {useState, useEffect} from 'react'
 import {findAll} from '../services/articoli'
+import { findByCategory } from '../services/articoli.mjs'
 
 const Starter = () => {
     const [loading, setLoading] = useState(false)
-    const [countries, setCountries] = useState([])
+    const [prodotti, setProdotti] = useState([])
 
     const fetchData = async () => {
         setLoading(true)
 
-        const res = await findAll()
+        const res = await findByCategory('Antipasto')
 
-        setCountries([...res])
+        setProdotti([...res])
         setLoading(false)
     }
 
@@ -31,31 +32,16 @@ const Starter = () => {
                 <CardCategory name="Antipasti"/>
                 <Row className='w-100'>
                 {
-                    starterList.map((starter, index) => (
-                        <Col xs={12} md={6} lg={4} className='mb-4'>
-                        <ItemComponent key={index} name={starter.name} price={starter.price} description={starter.description} image={starter.image} allergens={starter.allergens}/>
+
+                    loading ? <p>Caricamento...</p> : prodotti.map((starter, index) => (
+                        <Col key={index} xs={12} md={6} lg={4} className='mb-4'>
+                        <ItemComponent key={index} name={starter.nome} price={starter.prezzo} description={starter.descrizione} image={starter.image} allergens={starter.allergeni}/>
                         </Col>
                     ))
                 }
                 </Row>
             </Container>
-            <section>
-            <header>
-                <h2>Countries</h2>
-            </header>
 
-            { loading && 
-                <p>loading...</p>
-            }
-
-            <ul>
-                {countries.length > 0 && countries.map(country => (
-                    <li key={country.id}>
-                        <h3>{country.nome}</h3>
-                    </li>
-                ))}
-            </ul>
-        </section>
         </>
     )
 }

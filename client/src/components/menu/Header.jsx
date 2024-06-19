@@ -25,7 +25,9 @@ const Header = () => {
     <>
       <Navbar bg="light" expand="lg" className='shadow-sm' sticky="top">
         <Container>
-          <Navbar.Brand to="/" as={Link}>Tabisca Logo</Navbar.Brand>
+          <Navbar.Brand to="/" as={Link}>
+            <img src="/assets/images/logo.png" height='100px' alt="logo" className='logo' />
+          </Navbar.Brand>
           <Button onClick={handleShow} variant='dark' className='border-0 rounded-4'>
             <i className='bi bi-list-nested'> Menù</i>
           </Button>

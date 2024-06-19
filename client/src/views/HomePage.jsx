@@ -10,7 +10,7 @@ const HomePage = () => {
       <section className="hero">
         <div className="hero-overlay">
           <h4>Benvenuti</h4>
-          <img src="/assets/images/logoTabisca2.png" alt="logo" className='logo' />
+          <img src="/assets/images/logoBig2.png" alt="logo" className='logo' />
         </div>
         <div className='d-flex justify-content-center align-items-center'>
           <div className="hero-content">
@@ -22,8 +22,8 @@ const HomePage = () => {
           </div>
           <div className="hero-image">
             <img src="/assets/images/pizza-3.jpg" alt="pizza" />
-            <img src="/assets/images/pizza.jpg" alt="pizza" />
             <img src="/assets/images/pizza-2.jpg" alt="pizza" />
+            <img src="/assets/images/hamburger-1.jpg" alt="pizza" />
           </div>
         </div>
       </section>
@@ -38,7 +38,7 @@ const HomePage = () => {
         <Col md={6} className="d-flex justify-content-center align-items-center m-0 p-0">
           <div className='custom-col n1'>
             <img src="/assets/images/pizza-2.jpg" alt="pizza" />
-            <img src="/assets/images/pizza.jpg" alt="pizza" />
+            <img src="/assets/images/pizza-3.jpg" alt="pizza" />
           </div>
 
         </Col>
@@ -50,21 +50,37 @@ const HomePage = () => {
           className="d-flex justify-content-center align-items-center m-0 p-0 order-last order-md-first"
         >
           <div className='custom-col n2'>
-            <img src="/assets/images/pizza-3.jpg" alt="pizza" />
-            <img src="/assets/images/pizza.jpg" alt="pizza" />
+            <img src="/assets/images/rosticceria-1.jpg" alt="pizza" />
+            <img src="/assets/images/hamburger-1.jpg" alt="pizza" />
           </div>
         </Col>
         <Col
           md={6}
           className="d-flex flex-column justify-content-center p-5 order-first order-md-last text-light"
         >
-          <h2 style={{ fontFamily: 'Playwrite TZ' }} className='mb-4'>La pizzeria</h2>
+          <h2 style={{ fontFamily: 'Playwrite TZ' }} className='mb-4'>Scopri tutto il resto</h2>
           <p>La nostra pizzeria è famosa per la sua pizza napoletana, preparata con ingredienti di alta qualità e cotta in forno a legna. Siamo aperti tutti i giorni dalle 11:00 alle 23:00. Vi aspettiamo!</p>
         </Col>
       </Row>
 
+      <Row className='m-0 p-0 pb-4 pt-4 custom-row n2'>
+        <Col md={6} className="d-flex flex-column justify-content-center p-5 text-md-start text-lg-end text-sm-start text-light">
+          <h2 style={{ fontFamily: 'Playwrite TZ' }} className='mb-4'>La nostra storia</h2>
+          <p>La nostra pizzeria è famosa per la sua pizza napoletana, preparata con ingredienti di alta qualità e cotta in forno a legna. Siamo aperti tutti i giorni dalle 11:00 alle 23:00. Vi aspettiamo!</p>
+          <Button variant="outline-light" className='rounded-0 mt-3' as={Link} to='/about'>Scopri di più</Button>
+        </Col>
+        <Col md={6} className="d-flex justify-content-center align-items-center m-0 p-0">
+          <div className='custom-col n3'>
+            <img src="/assets/images/owners.jpg" alt="pizza" />
+            <img src="/assets/images/owners-2.jpg" alt="pizza" />
+          </div>
+
+        </Col>
+      </Row>
+
+
       <Container className='text-center mt-5' style={{ fontFamily: 'Montserrat' }}>
-        <img src="/assets/images/placeholder.png" width='40px' alt="logo" className='logo' />
+        <img src="/assets/icons/placeholder.png" width='40px' alt="logo" className='logo' />
         <h2 className='mb-3'>Come raggiuncerci</h2>
       </Container>
       <iframe

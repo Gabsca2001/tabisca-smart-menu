@@ -15,6 +15,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useContext } from 'react';
 import { auth } from '../services/db';
 import ReservedLayout from '../components/ReservedLayout'
+import HomeLayout from '../components/HomeLayout'
+import MenuLayout from '../components/MenuLayout'
+import Menu from '../components/Menu'
 
 
 const CheckAuthRoute = ({ children }) => {
@@ -50,44 +53,20 @@ const router = createBrowserRouter(
             children: [
                 {
                     path: '/',
-                    element: <Home />,
-                    children: [
-                        {
-                            path: '/',
-                            element: <HomePage />
-                        },
-                        {
-                            path: '/antipasti',
-                            element: <Starter />
-                        },
-                        {
-                            path: '/panini',
-                            element: <Panini />
-                        },
-                        {
-                            path: '/pinze',
-                            element: <Pinze />
-                        },
-                    ]
+                    element: <HomePage />
                 },
+                
+            ]
+        },
+        {
+            path: '/menu',
+            element: <Menu />,
+            children: [
                 {
-                    path: '/reserved',
-                    element: <CheckAuthRoute><ReservedLayout /></CheckAuthRoute>,
-                    children: [
-                        {
-                            path: '/reserved',
-                            element: <AddItem />
-                        }
-                    ]
+                    path: 'antipasti',
+                    element: <Starter />
                 },
-                {
-                    path: '/login',
-                    element: <Login />
-                }
-
-
-            ],
-
+            ]
         },
         {
             path: '*',

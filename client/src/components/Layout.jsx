@@ -10,17 +10,17 @@ const Layout = ({ children }) => {
     <div>
       {/* <Header /> */}
       <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className='ml-auto justify-content-end'>
-          <Nav>
-            <Nav.Link href="#link" className='linkNavbar'>Your Element</Nav.Link>
-            <Nav.Link href="#link">Your Element</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <Container>
+          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className='ml-auto justify-content-end'>
+            <Nav>
+              <Nav.Link href="#link" className='linkNavbar'>Your Element</Nav.Link>
+              <Nav.Link href="#link">Your Element</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
 
       {children}

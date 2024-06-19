@@ -1,4 +1,3 @@
-
 .customCanvas {
     background-color: #54647f !important;
     border-radius: 0.8rem;
@@ -99,7 +98,7 @@
 
 .card-item-header img {
     width: 7rem;
-    height: 6rem;
+    height: 7rem;
     border-radius: 1.8rem;
     object-fit: cover;
 }
@@ -114,4 +113,63 @@
     font-family: 'Montserrat', sans-serif !important;
     transition: all 0.3s ease;
     font-weight: 700;
+}
+
+.login-col-1 {
+    background-image: url('../images/oven.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    min-height: 30vh;
+}
+
+.login-col-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adjust the opacity as needed */
+    border-radius: 0.8rem;
+    z-index: 1;
+    /* Ensure the overlay is on top */
+}
+
+/* Ensure the content inside .login-col-1 is above the overlay */
+.login-col-1>* {
+    position: relative;
+    z-index: 2;
+}
+
+.input-form {
+    background-color: #8d7f7f !important;
+    color: #ffffff !important;
+    border: 0;
+    border-radius: 1rem !important;
+    max-width: 100% !important;
+    font-family: 'Montserrat', sans-serif !important;
+    position: relative;
+}
+
+.input-form::placeholder {
+    color: #dddddd !important;
+}
+
+.linkNavbar {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border-radius: 0.8rem;
+}
+
+.linkNavbar:hover {
+    color: #ffffff !important;
+    background-color: #aca696 !important;
 }

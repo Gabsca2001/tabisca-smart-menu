@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/styles/Header.css'
+import '../../assets/styles/Header.css'
 import { Col, Offcanvas, Row } from 'react-bootstrap'
 import { Modal, Button } from 'react-bootstrap'
 
@@ -22,7 +22,7 @@ const ItemComponent = (props) => {
                                 </div>
                             </Button>
                         </Col>
-                        <Col xs={8} d-flex flex-column justify-content-start>
+                        <Col xs={8} className='d-flex flex-column justify-content-start'>
                             <h4 style={{ color: '#232f42' }}>{props.name}</h4>
                             <p className="text-start" style={{ fontWeight: '500', color: '#808080' }}>{props.description}</p>
                         </Col>
@@ -50,7 +50,9 @@ const ItemComponent = (props) => {
                     <Modal.Title>{props.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <img src={props.image} alt={props.name} style={{ width: '100%' }} className='rounded-4' />
+                    <div className='d-flex justify-content-center'>
+                    <img src={props.image} alt={props.name} style={{maxHeight: '300px', maxWidth: '100%' }} className='rounded-4' />
+                    </div>
                     <div style={{ position: 'relative' }} className='mt-5'>
                         <div style={{ height: '1px', width: '100%', backgroundColor: '#bdbdbd' }} >
                         </div>

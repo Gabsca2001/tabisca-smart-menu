@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import '../assets/styles/Header.css'
+import '../../assets/styles/Header.css'
 
 const CardCategory = (props) => {
   return (

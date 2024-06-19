@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import MenuLayout from '../components/MenuLayout'
+import MenuLayout from '../../components/MenuLayout'
 
 const Menu = () => {
   return (

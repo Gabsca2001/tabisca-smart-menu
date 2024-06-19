@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Tabs, Tab } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { categories } from '../utils/categories'
-import { UIContext } from '../context/context'
+import { categories } from '../../utils/categories'
+import { UIContext } from '../../context/context'
 import { useContext } from 'react'
 
 const FloatMenu = () => {

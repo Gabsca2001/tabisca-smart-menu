@@ -1,20 +1,30 @@
 import React, { useEffect } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../services/db'
+import { auth } from '../services/firebase-config'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/context'
+import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
+import '../assets/styles/Header.css'
 
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const { currentUser, setCurrentUser } = useContext(AuthContext);
+    const {setCurrentUser } = useContext(AuthContext);
+
 
     const handleSignIn = async (e) => {
+        setError(null);
         e.preventDefault();
+
+        if (!email || !password) {
+            setError('Inserisci e-mail e password');
+            return;
+        }
+
         try {
             await signInWithEmailAndPassword(auth, email, password);
             const user = auth.currentUser;
@@ -22,33 +32,52 @@ const Login = () => {
             navigate('/reserved');
         } catch (err) {
             setCurrentUser(null);
-            setError(err.message);
+            setError('Credenziali non valide. Riprova');
         }
     };
-    
+
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
+
+
     return (
-        <div>
-            {
-                currentUser && <p>{currentUser.email} is signed in</p>
-            }
-            <h2>Sign In</h2>
-            <form onSubmit={handleSignIn}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Sign In</button>
-            </form>
-            {error && <p>{error}</p>}
-        </div>
+        <>
+            <Row className='w-100 m-0 p-0' style={{ fontFamily: 'Montserrat' }}>
+                <Col xs={12} md={6} className='login-col-1 d-flex flex-column justify-content-center align-items-center text-light'>
+                    <h5>Benvenuto</h5>
+                    <h4>Accedi per visualizzare il menu</h4>
+                </Col>
+                <Col xs={12} md={6} className='d-flex justify-content-center align-items-center bg-dark'>
+                    <Form onSubmit={handleSignIn} className='bg-white m-4 p-4 rounded-2'>
+                        <h3>Accedi</h3>
+                        {error && <p className='text-danger'>{error}</p>}
+                        <Form.Group className='mt-3 mb-3' controlId='formBasicEmail'>
+                            <Form.Label>E-mail</Form.Label>
+                            <Form.Control type='email' className='input-form' placeholder='Inserisci e-mail' onChange={(e) => setEmail(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group className='mb-3' controlId='formBasicPassword'>
+                            <Form.Label>Password</Form.Label>
+                            <InputGroup>
+                                <Form.Control type={passwordVisible ? 'text' : 'password'} className='input-form' placeholder='Inserisci password' onChange={(e) => setPassword(e.target.value)} />
+                                <Button variant='dark' className='rounded-5 mx-1' onClick={togglePasswordVisibility}>
+                                    {passwordVisible
+                                        ? <i className='bi bi-eye-slash'></i>
+                                        : <i className='bi bi-eye'></i>
+                                    }
+                                </Button>
+                            </InputGroup>
+                        </Form.Group>
+                        <div className='d-flex justify-content-end'>
+                            <Button type='submit' className='bg-dark rounded-4'>
+                                Login
+                            </Button>
+                        </div>
+                    </Form>
+                </Col>
+            </Row>
+        </>
     )
 }
 

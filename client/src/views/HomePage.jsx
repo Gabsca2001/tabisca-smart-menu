@@ -17,7 +17,9 @@ const HomePage = () => {
             <p className='mt-4'>La nostra pizzeria è famosa per la sua pizza napoletana, preparata con ingredienti di alta qualità e cotta in forno a legna. Siamo aperti tutti i giorni dalle 11:00 alle 23:00. Vi aspettiamo!</p>
             <div className="hero-buttons">
               <Button variant="outline-light" className='rounded-0' as={Link} to='/menu/antipasti'>Scopri il nostro menu</Button>
-              <Button variant="light" className='rounded-0' as={Link} to='tel:+393274564857'>Chiama adesso</Button>
+              <Button variant="light" className='rounded-0' as={Link} to='tel:+393274564857'>
+                <img src="/assets/icons/telephone.png" className='mx-2' width='30px' alt="phone" />
+                Chiama adesso</Button>
             </div>
           </div>
           <div className="hero-image">
@@ -81,7 +83,7 @@ const HomePage = () => {
 
       <Container className='text-center mt-5' style={{ fontFamily: 'Montserrat' }}>
         <img src="/assets/icons/placeholder.png" width='40px' alt="logo" className='logo' />
-        <h2 className='mb-3'>Come raggiuncerci</h2>
+        <h2 className='mb-3'>Come raggiungerci</h2>
       </Container>
       <iframe
         title="maps"

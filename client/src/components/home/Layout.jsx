@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <Navbar expand="lg" className='bg-light'>
         <Container>
           <Navbar.Brand href="#home">
-            <img src="/assets/images/logo.png" height='100px' alt="logo" className='logo' />
+            <img src="/assets/images/logo.png" height='80px' alt="logo" className='logo' />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className='border-0'/>
           <Navbar.Collapse id="basic-navbar-nav" className='ml-auto justify-content-end'>

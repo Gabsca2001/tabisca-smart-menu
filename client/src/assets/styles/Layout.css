@@ -192,6 +192,19 @@
         display: none;
     }
 
+    .custom-col.n1{
+        border-top-left-radius: 2rem;
+        margin-left: 1rem;
+    }
+
+    .custom-col.n2{
+        margin-right: 1rem;
+    }
+
+    .custom-col.n3{
+        margin-left: 1rem;
+    }
+
 }
 
 @media (min-width: 1024px) {

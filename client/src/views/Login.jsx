@@ -59,19 +59,23 @@ const Login = () => {
                         </Form.Group>
                         <Form.Group className='mb-3' controlId='formBasicPassword'>
                             <Form.Label>Password</Form.Label>
-                            <InputGroup>
+                            <InputGroup >
+                            <div className='d-flex position-relative'>
+
                                 <Form.Control type={passwordVisible ? 'text' : 'password'} className='input-form' placeholder='Inserisci password' onChange={(e) => setPassword(e.target.value)} />
-                                <Button variant='dark' className='rounded-5 mx-1' onClick={togglePasswordVisibility}>
+                                <Button variant='transparent' className='position-absolute end-0 text-light' onClick={togglePasswordVisibility}>
                                     {passwordVisible
                                         ? <i className='bi bi-eye-slash'></i>
                                         : <i className='bi bi-eye'></i>
                                     }
+                                    
                                 </Button>
+                            </div>
                             </InputGroup>
                         </Form.Group>
-                        <div className='d-flex justify-content-end'>
+                        <div className='d-flex justify-content-center'>
                             <Button type='submit' className='bg-dark rounded-4'>
-                                Login
+                                Accedi
                             </Button>
                         </div>
                     </Form>

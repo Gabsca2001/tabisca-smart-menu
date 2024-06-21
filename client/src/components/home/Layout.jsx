@@ -16,6 +16,7 @@ const Layout = ({ children }) => {
           <Navbar.Collapse id="basic-navbar-nav" className='ml-auto justify-content-end'>
             <Nav>
               <Nav.Link as={Link} to='/' className='linkNavbar'>Home</Nav.Link>
+              <Nav.Link as={Link} to='/storia' className='linkNavbar'>Storia</Nav.Link>
               <Nav.Link as={Link} to='/menu/antipasti' className='linkNavbar'>Menù</Nav.Link>
               <Nav.Link href="#link" className='linkNavbar'>Contatti</Nav.Link>
             </Nav>

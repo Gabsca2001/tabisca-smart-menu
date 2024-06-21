@@ -8,6 +8,8 @@ import NotFound from '../views/NotFound'
 import AddItem from '../views/reserved/AddItem'
 import Login from '../views/Login'
 import HomePage from '../views/HomePage'
+import Home from '../components/home/Home'
+import Storia from '../views/Storia'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/context'
 import { onAuthStateChanged } from 'firebase/auth';
@@ -21,6 +23,7 @@ import EditItem from '../views/reserved/EditItem'
 
 
 const CheckAuthRoute = ({ children }) => {
+
     const navigate = useNavigate();
     const { setCurrentUser } = useContext(AuthContext);
 
@@ -49,40 +52,46 @@ const CheckAuthRoute = ({ children }) => {
 const router = createBrowserRouter(
     [
         {
-            path: '/',
             element: <Root />,
             children: [
                 {
-                    path: '/',
-                    element: <HomePage />
+                    element: <Home/>,
+                    children: [
+                        {
+                            path: '/',
+                            element: <HomePage />
+                        },
+                        {
+                            path: 'storia',
+                            element: <Storia />
+                        },
+                        {
+                            path: '/login',
+                            element: <Login />
+                        },
+                    ],
                 },
                 {
-                    path: '/login',
-                    element: <Login />
-                }
-
-            ]
-        },
-        {
-            path: '/menu',
-            element: <Menu />,
-            children: [
-                {
-                    path: '/menu',
-                    element: <PrimaPagina />
+                    element: <Menu />,
+                    children: [
+                        {
+                            path: 'menu',
+                            element: <PrimaPagina />
+                        },
+                        {
+                            path: '/menu/antipasti',
+                            element: <Starter />
+                        },
+                        {
+                            path: '/menu/panini',
+                            element: <Panini />
+                        },
+                        {
+                            path: '/menu/pinze',
+                            element: <Pinze />
+                        }
+                    ]
                 },
-                {
-                    path: 'antipasti',
-                    element: <Starter />
-                },
-                {
-                    path: 'panini',
-                    element: <Panini />
-                },
-                {
-                    path: 'pinze',
-                    element: <Pinze />
-                }
             ]
         },
         {

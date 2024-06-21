@@ -170,6 +170,99 @@
     margin: 0 1rem;
 }
 
+.hero-storia{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Playwrite TZ', sans-serif;
+    background: url('/assets/images/owners.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    filter: grayscale(70%);
+}
+
+.hero-storia::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.692);
+    z-index: 1;
+}
+
+.hero-storia-overlay {
+    color: #ffffff;
+    z-index: 2;
+}
+
+.custom-row-storia{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.custom-col-storia{
+    background: radial-gradient(circle, rgb(15,44,100) 0%, rgb(7, 19, 43) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.custom-col-storia img{
+    width: 50%;
+    max-height: 400px;
+    object-fit: cover;
+    margin: 0 1rem;
+    z-index: 2;
+    border-radius: 2rem;
+}
+
+.row-video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+    font-family: 'Playwrite TZ', sans-serif;
+    background: url('/assets/images/owners-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+}
+
+.row-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23, 20, 36, 0.692);
+    z-index: 1;
+}
+
+.video-overlay {
+    z-index: 2;
+}
+
+.video-overlay video{
+    width: auto;
+    max-height: 600PX;
+    border-radius: 2rem;
+    box-shadow: 0 15px 20px rgba(9, 7, 22, 0.479);
+}
+
+
 @media (max-width: 1024px) {
     .hero {
         display: flex;
@@ -203,6 +296,19 @@
 
     .custom-col.n3{
         margin-left: 1rem;
+    }
+
+    .hero-storia{
+        min-height: 35vh;
+    }
+
+    .custom-col-storia.n1{
+        padding: 0;
+        margin: 0;
+    }
+
+    .custom-col-storia{
+        border-top-left-radius: 2rem;
     }
 
 }

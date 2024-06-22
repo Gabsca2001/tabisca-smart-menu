@@ -5,6 +5,7 @@ import { auth } from '../../services/firebase-config.mjs'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/context'
 import { useNavigate } from 'react-router-dom'
+import '../../assets/styles/Header.css'
 
 const ReservedLayout = ({children}) => {
 
@@ -26,14 +27,16 @@ const ReservedLayout = ({children}) => {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand to="/" as={Link}>
+            <img src="/assets/images/logo.png" height='80px' alt="logo" className='logo' />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className='ml-auto justify-content-end'>
             <Nav>
               <Nav.Link as={Link} to='/' className='linkNavbar'>Torna al sito web</Nav.Link>
               <Nav.Link as={Link} to='/reserved' className='linkNavbar'>Area riservata</Nav.Link>
               <Nav.Link as={Link} to='/reserved/addItem' className='linkNavbar'>Aggiungi prodotto</Nav.Link>
-              <Button onClick={handleLogout} className='linkNavbar'>Logout</Button>
+              <Button variant='danger' onClick={handleLogout} className='linkNavbar mx-lg-2'>Esci</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

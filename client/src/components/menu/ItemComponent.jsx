@@ -40,7 +40,7 @@ const ItemComponent = (props) => {
 
                 <div className='d-flex w-100' >
                     <div className='ms-auto itemButton'>
-                        <span>€ {props.price}</span>
+                        <span>€ {props.price.toFixed(2)}</span>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ const ItemComponent = (props) => {
                     </div>
                     <div className='d-flex w-100' >
                         <div className='ms-auto itemButton'>
-                            <span>€ {props.price}</span>
+                            <span>€ {props.price.toFixed(2)}</span>
                         </div>
                     </div>
                 </Modal.Body>

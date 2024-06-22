@@ -5,8 +5,7 @@ import ItemComponent from '../../components/menu/ItemComponent'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import { findByCategory } from '../../services/articoli.mjs'
-import { useContext } from 'react'
-import { UIContext } from '../../context/context'
+import { CACHE_DURATION } from '../../utils/cache-optimize'
 
 const Starter = () => {
     const [loading, setLoading] = useState(false)
@@ -14,11 +13,23 @@ const Starter = () => {
 
     const fetchData = async () => {
 
-        setLoading(true)
-        const res = await findByCategory('Antipasti')
+        setLoading(true);
 
-        setProdotti([...res]);
-        setLoading(false)
+        const cachedData = localStorage.getItem('antipastiItems')
+        const cachedTime = localStorage.getItem('antipastiItemsTime')
+
+        const now = new Date().getTime()
+
+        if (cachedData && cachedTime && (now - cachedTime < CACHE_DURATION)) {
+            setProdotti(JSON.parse(cachedData))
+            setLoading(false)
+        } else {
+            const res = await findByCategory('Antipasti')
+            setProdotti(res)
+            localStorage.setItem('antipastiItems', JSON.stringify(res))
+            localStorage.setItem('antipastiItemsTime', now)
+            setLoading(false)
+        }
     }
 
     useEffect(() => {

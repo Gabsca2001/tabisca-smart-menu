@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react'
 import { findAll } from '../../services/articoli.mjs'
 import { useState } from 'react'
-import { Button, Container, Tab, Table } from 'react-bootstrap'
-import { deleteItem } from '../../services/articoli.mjs'
-import { useNavigate } from 'react-router-dom'
+import { Container, Table } from 'react-bootstrap'
+import ItemRow from '../../components/reserved/ItemRow'
 
 
 const ReservedPage = () => {
-
-  const navigate = useNavigate()
 
   const [prodotti, setProdotti] = useState([])
   const [loading, setLoading] = useState(false)
@@ -28,59 +25,38 @@ const ReservedPage = () => {
     fetchData()
   }, [])
 
-  const handleEdit = (item) => {
-   try{
-      navigate('/reserved/editItem', { state: item })
-   }catch(err){
-      console.log(err)
-    }
-  }
-
-  const handleDeleteItem = (id, image) => {
-    //delete item
-    try{
-      deleteItem(id, image)
-      fetchData()
-    }catch(err){
-      console.log(err)
-    }
-
-  }
-
   return (
     <>
-      <h2>List of all documents</h2>
-      {loading && <p>Loading...</p>}
-      <Container>
-        <Table striped bordered hover className='w-75'>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nome</th>
-              <th>Descrizione</th>
-              <th>Prezzo</th>
-              <th>Categoria</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody>
-            {prodotti.map((item, index) => (
-              <tr key={index}>
-      
-                <td>{index + 1}</td>
-                <td>{item.nome}</td>
-                <td>{item.descrizione}</td>
-                <td>{item.prezzo}</td>
-                <td>{item.categoria}</td>
-                <td className='d-flex align-content-between justify-content-between gap-3'>
-                  <Button variant="primary" onClick={() => {handleEdit(item)}}>Edit</Button>
-                  <Button variant="danger" onClick={() => handleDeleteItem(item.id, item.image)}>Delete</Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
+      <div className='d-flex flex-column justify-content-center align-items-center pt-5 pb-5 text-light' style={{ backgroundColor: '#7D8B9C', fontFamily: 'Montserrat' }}>
+        <h1 className='text-center'>Area riservata</h1>
+        <h4>Lista di tutti i prodotti</h4>
+      </div>
+
+      <Container className='mt-5'>
+        {loading
+          ? <p className='text-center'>Caricamento ...</p>
+          : prodotti.length === 0 ? <p>Nessun prodotto caricato al momento</p> :
+            <Table striped bordered hover responsive>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nome</th>
+                  <th>Descrizione</th>
+                  <th>Prezzo</th>
+                  <th>Categoria</th>
+                  <th>Azioni</th>
+                </tr>
+              </thead>
+              <tbody>
+                {prodotti.map((item, index) => (
+                  <ItemRow key={index} item={item} index={index} fetchData={fetchData} />
+                ))}
+              </tbody>
+            </Table>
+        }
       </Container>
+
+
     </>
   )
 }

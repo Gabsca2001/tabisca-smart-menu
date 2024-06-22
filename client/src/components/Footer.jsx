@@ -9,6 +9,7 @@ const Footer = () => {
         <h5>Contatti</h5>
         <p>Indirizzo: Via Roma, 123</p>
         <p>Telefono: 0123456789</p>
+        <Link to={'/login'} className='text-light'>Login</Link>
       </div>
     </footer>
 

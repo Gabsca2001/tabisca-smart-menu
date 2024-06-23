@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../services/firebase-config'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
@@ -46,12 +44,13 @@ const Login = () => {
 
     return (
         <>
-            <Row className='w-100 m-0 p-0' style={{ fontFamily: 'Montserrat' }}>
+        <div style={{minHeight: '50vh'}} className='p-lg-5 p-md-5 shadow'>
+            <Row className='p-0 m-0' style={{ fontFamily: 'Montserrat' }}>
                 <Col xs={12} md={6} className='login-col-1 d-flex flex-column justify-content-center align-items-center text-light'>
                     <h5>Benvenuto</h5>
                     <h4>Accedi per visualizzare il menu</h4>
                 </Col>
-                <Col xs={12} md={6} className='d-flex justify-content-center align-items-center bg-dark'>
+                <Col xs={12} md={6} className='login-col-2 d-flex justify-content-center align-items-center bg-dark'>
                     <Form onSubmit={handleSignIn} className='bg-white m-4 p-4 rounded-2'>
                         <h3>Accedi</h3>
                         {error && <p className='text-danger'>{error}</p>}
@@ -83,6 +82,7 @@ const Login = () => {
                     </Form>
                 </Col>
             </Row>
+        </div>
         </>
     )
 }

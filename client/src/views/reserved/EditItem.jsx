@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Form, Button, Container, Alert, ToastContainer, Toast } from 'react-bootstrap'
 import { categories } from '../../utils/categories'
 import { updateItem } from '../../services/articoli.mjs'
@@ -9,6 +10,9 @@ import { Link } from 'react-router-dom'
 
 const EditItem = () => {
     //get item from location state
+
+    const navigate = useNavigate()
+
     const item = window.history.state.usr
 
     const [name, setName] = useState(item.nome)
@@ -17,6 +21,7 @@ const EditItem = () => {
     const [price, setPrice] = useState(item.prezzo)
     const [category, setCategory] = useState(item.categoria)
     const [imagePreview, setImagePreview] = useState(item.image)
+    const [allergens, setAllergens] = useState(item.allergeni)
     const [error, setError] = useState('')
 
     const [loading, setLoading] = useState('');
@@ -70,6 +75,7 @@ const EditItem = () => {
                         image: url,
                         prezzo: parseFloat(price),
                         categoria: category,
+                        allergeni: allergens
                     }, item.id)
                         .then(() => {
                             setLoading('Aggiornamento completato')
@@ -79,7 +85,9 @@ const EditItem = () => {
                             setPrice('')
                             setCategory('')
                             setImagePreview('')
+                            setAllergens('')
                             setError('')
+                            navigate('/reserved')
                         })
                         .catch((error) => {
                             setLoading('')
@@ -100,6 +108,7 @@ const EditItem = () => {
                 image: imagePreview,
                 prezzo: parseFloat(price),
                 categoria: category,
+                allergeni: allergens
             }, item.id)
                 .then(() => {
                     setLoading('Aggiornamento completato')
@@ -109,7 +118,9 @@ const EditItem = () => {
                     setPrice('')
                     setCategory('')
                     setImagePreview('')
+                    setAllergens('')
                     setError('')
+                    navigate('/reserved')
                 })
                 .catch((error) => {
                     setLoading('')
@@ -148,9 +159,13 @@ const EditItem = () => {
                         <Form.Label>Descrizione</Form.Label>
                         <Form.Control type='text' placeholder='Inserisci ingredienti' value={description} onChange={(e) => setDescription(e.target.value)} />
                     </Form.Group>
+                    <Form.Group className='mb-3' controlId='formBasicAllergens'>
+                        <Form.Label>Allergeni</Form.Label>
+                        <Form.Control type='text' placeholder='Inserisci allergeni' value={allergens} onChange={(e) => setAllergens(e.target.value)} />
+                    </Form.Group>
                     <Form.Group className='mb-3' controlId='formBasicPrice'>
-                        <Form.Label>Prezzo</Form.Label>
-                        <Form.Control type='number' placeholder='Inserisci prezzo' value={price} onChange={(e) => setPrice(e.target.value)} />
+                        <Form.Label>Prezzo *</Form.Label>
+                        <Form.Control type='text' placeholder='Inserisci prezzo' value={price} onChange={(e) => setPrice(e.target.value)} />
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='formBasicCategory'>
                         <Form.Label>Categoria *</Form.Label>

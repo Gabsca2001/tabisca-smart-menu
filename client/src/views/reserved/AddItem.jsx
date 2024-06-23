@@ -23,7 +23,7 @@ const AddItem = () => {
         e.preventDefault();
 
         //check if all fields are filled
-        if (!name || !description || !image || !price || !category || !allergeni) {
+        if (!name || !description || !image || !price || !category ) {
             setError('Perfavore riempi tutti i campi');
             return;
         }
@@ -129,7 +129,7 @@ const AddItem = () => {
                         />
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='formBasicAllergeni'>
-                        <Form.Label>Allergeni *</Form.Label>
+                        <Form.Label>Allergeni</Form.Label>
                         <Form.Control
 
                             type='text'
@@ -158,7 +158,7 @@ const AddItem = () => {
                         <Form.Label>Prezzo *</Form.Label>
                         <Form.Control
                             type='text'
-                            placeholder='Enter price'
+                            placeholder='Inserisci prezzo'
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />

@@ -120,7 +120,7 @@ const HomePage = () => {
             <p className="mb-0">Aperti tutti i giorni dalle 17:00 alle 02:00</p>
           </div>
 
-          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4 mt-3'>Contatti</h2>
+          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4 mt-3' id="contatti">Contatti</h2>
           <div className="d-flex align-items-center mb-3">
             <img src="/assets/icons/phone.png" alt="location" width='24px' className="me-2" />
             <Link to='tel:+390917793195' className="mb-0 text-light">+39 0917793195</Link>

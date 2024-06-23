@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import Root from '../components/home/Root'
 import Starter from '../views/menu/Starter'
 import Panini from '../views/menu/Panini'
-import Pinze from '../views/menu/Pinze'
+import Pinze from '../views/menu/Pinse.jsx'
 import NotFound from '../views/NotFound'
 import AddItem from '../views/reserved/AddItem'
 import Login from '../views/Login'
@@ -75,7 +75,7 @@ const router = createBrowserRouter(
                             element: <Panini />
                         },
                         {
-                            path: '/menu/pinze',
+                            path: '/menu/pinse',
                             element: <Pinze />
                         }
                     ]

@@ -13,7 +13,7 @@ const FloatMenu = () => {
         setValue(selectedItem)
     }, [selectedItem]);
 
-    const [value, setValue] = useState(-1);
+    const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -28,7 +28,7 @@ const FloatMenu = () => {
                 onChange={handleChange}
                 variant="scrollable"
                 sx={{ "& .Mui-selected": { backgroundColor: '#1f1c3e', color: 'white' }, "& .MuiTabs-indicator": { backgroundColor: 'white' } }}
-                textColor='white'
+                textColor='inherit'
                 scrollButtons
                 allowScrollButtonsMobile
                 aria-label="scrollable force tabs example"

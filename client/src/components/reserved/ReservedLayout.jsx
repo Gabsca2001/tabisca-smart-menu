@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../../context/authContext.jsx'
 import { useNavigate } from 'react-router-dom'
 import '../../assets/styles/Header.css'
+import Footer from '../Footer.jsx'
 
 const ReservedLayout = ({children}) => {
 
@@ -41,6 +42,8 @@ const ReservedLayout = ({children}) => {
       </Navbar>
       
       {children}
+
+      <Footer />
     </>
   )
 }

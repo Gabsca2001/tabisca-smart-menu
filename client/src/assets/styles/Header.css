@@ -89,7 +89,6 @@
     margin-top: 1rem;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
     max-width: 100% !important;
-    font-family: 'Montserrat', sans-serif !important;
 }
 
 .card-item-header {
@@ -124,6 +123,14 @@
     overflow: hidden;
     position: relative;
     min-height: 30vh;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.login-col-2 {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
 }
 
 .login-col-1::before {
@@ -172,4 +179,17 @@
 .linkNavbar:hover {
     color: #ffffff !important;
     background-color: #aca696 !important;
+}
+
+@media (max-width: 767px) {
+    .login-col-1 {
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 0;
+    }
+
+    .login-col-2 {
+        border-radius: 0;
+    }
 }

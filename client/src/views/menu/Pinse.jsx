@@ -7,7 +7,8 @@ import { findByCategory } from '../../services/articoli.mjs'
 import { CACHE_DURATION } from '../../utils/cache-optimize'
 import { useState, useEffect } from 'react'
 
-const Panini = () => {
+
+const Pinse = () => {
 
     const [loading, setLoading] = useState(false)
     const [prodotti, setProdotti] = useState([])
@@ -16,8 +17,8 @@ const Panini = () => {
 
         setLoading(true);
 
-        const cachedData = localStorage.getItem('paniniItems')
-        const cachedTime = localStorage.getItem('paniniItemsTime')
+        const cachedData = localStorage.getItem('pinseItems')
+        const cachedTime = localStorage.getItem('pinseItemsTime')
 
         const now = new Date().getTime()
 
@@ -25,10 +26,10 @@ const Panini = () => {
             setProdotti(JSON.parse(cachedData))
             setLoading(false)
         } else {
-            const res = await findByCategory('Panini')
+            const res = await findByCategory('Pinse')
             setProdotti(res)
-            localStorage.setItem('paniniItems', JSON.stringify(res))
-            localStorage.setItem('paniniItemsTime', now)
+            localStorage.setItem('pinseItems', JSON.stringify(res))
+            localStorage.setItem('pinseItemsTime', now)
             setLoading(false)
         }
     }
@@ -40,9 +41,8 @@ const Panini = () => {
     return (
         <>
             <Container className='d-flex flex-column align-items-center justify-content-center'>
-
-
-                <CardCategory name="Panini" />
+                
+                <CardCategory name="Pinse"/>
                 {loading && <p>Caricamento...</p>}
                 <Row className='w-100'>
                     {prodotti.map((item, index) => (
@@ -57,4 +57,4 @@ const Panini = () => {
     )
 }
 
-export default Panini
+export default Pinse

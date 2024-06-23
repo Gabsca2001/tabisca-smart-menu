@@ -11,10 +11,8 @@ import HomePage from '../views/HomePage'
 import Home from '../components/home/Home'
 import Storia from '../views/Storia'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../context/context'
-import { onAuthStateChanged } from 'firebase/auth';
+import { AuthContext } from '../context/authContext.jsx'
 import { useContext } from 'react';
-import { auth } from '../services/firebase-config';
 import Menu from '../components/menu/Menu'
 import Reserved from '../components/reserved/Reserved'
 import ReservedPage from '../views/reserved/ReservedPage'
@@ -25,24 +23,14 @@ import EditItem from '../views/reserved/EditItem'
 const CheckAuthRoute = ({ children }) => {
 
     const navigate = useNavigate();
-    const { setCurrentUser } = useContext(AuthContext);
+
+    const { currentUser } = useContext(AuthContext);
 
     useEffect(() => {
-        const checkAuth = () => {
-            try {
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        setCurrentUser(user);
-                    } else {
-                        navigate('/login');
-                    }
-                });
-            } catch (err) {
-                console.error(err);
-            }
+        if (!currentUser) {
+            navigate('/login');
         }
-        checkAuth();
-    }, []);
+    }, [currentUser, navigate]);
 
     return children;
 }

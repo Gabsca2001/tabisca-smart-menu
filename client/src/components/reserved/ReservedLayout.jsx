@@ -1,25 +1,23 @@
 import React from 'react'
 import { Container, Navbar, Nav, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { auth } from '../../services/firebase-config.mjs'
 import { useContext } from 'react'
-import { AuthContext } from '../../context/context'
+import { AuthContext } from '../../context/authContext.jsx'
 import { useNavigate } from 'react-router-dom'
 import '../../assets/styles/Header.css'
 
 const ReservedLayout = ({children}) => {
 
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    /*firebase logout */
-    auth.signOut().then(() => {
-      setCurrentUser(null);
+  const handleLogout = async() => {
+    try{
+      await logout();
       navigate('/login');
-    }).catch((error) => {
-      console.error(error);
-    });
+    }catch(err){
+      console.error(err);
+    }
     
   }
 
@@ -41,6 +39,7 @@ const ReservedLayout = ({children}) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      
       {children}
     </>
   )

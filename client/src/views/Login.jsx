@@ -4,7 +4,7 @@ import { auth } from '../services/firebase-config'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import { AuthContext } from '../context/context'
+import { AuthContext } from '../context/authContext.jsx'
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 import '../assets/styles/Header.css'
 
@@ -13,8 +13,13 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const {setCurrentUser } = useContext(AuthContext);
+    const {currentUser, login } = useContext(AuthContext);
 
+    useEffect(() => {
+        if (currentUser) {
+            navigate('/reserved');
+        }
+    }, [navigate]);
 
     const handleSignIn = async (e) => {
         setError(null);
@@ -26,12 +31,9 @@ const Login = () => {
         }
 
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            const user = auth.currentUser;
-            setCurrentUser(user);
+            await login(email, password);
             navigate('/reserved');
         } catch (err) {
-            setCurrentUser(null);
             setError('Credenziali non valide. Riprova');
         }
     };

@@ -1,12 +1,10 @@
 {
   "hosting": {
     "public": "dist",
-    "index": "index.html",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "vite.config.js"
+      "**/node_modules/**"
     ],
     "rewrites": [
       {

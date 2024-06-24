@@ -13,9 +13,5 @@ const paniniList = [
     { name: 'Twist Super', price: 6.00, description: 'Patatine twist - mortadella croccante - fonduta di formaggio - pesto di pistacchio', allergens: 'Glutine, Afnfd, asdfasd', image: 'https://images.unsplash.com/photo-1625938144755-652e08e359b7?q=80&w=1135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 ];
 
-const pinzeList = [
-    { name: 'Twist Super', price: 6.00, description: 'Patatine twist - mortadella croccante - fonduta di formaggio - pesto di pistacchio', allergens: 'Glutine, Afnfd, asdfasd', image: 'https://images.unsplash.com/photo-1625938144755-652e08e359b7?q=80&w=1135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { name: 'Twist Super', price: 6.00, description: 'Patatine twist - mortadella croccante - fonduta di formaggio - pesto di pistacchio', allergens: 'Glutine, Afnfd, asdfasd', image: 'https://images.unsplash.com/photo-1625938144755-652e08e359b7?q=80&w=1135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-];
 
-export {starterList, paniniList, pinzeList};
+export {starterList, paniniList};

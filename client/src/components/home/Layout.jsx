@@ -1,8 +1,9 @@
 import React from 'react'
 import Footer from '../Footer'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Nav, Navbar} from 'react-bootstrap'
 import '../../assets/styles/Header.css'
 import { Link } from 'react-router-dom'
+import CookieBanner from '../CookieBanner'
 
 const Layout = ({ children }) => {
   return (
@@ -24,9 +25,11 @@ const Layout = ({ children }) => {
         </Container>
       </Navbar>
 
+      <CookieBanner />
 
       {children}
       <Footer />
+
     </div>
   )
 }

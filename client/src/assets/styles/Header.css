@@ -71,7 +71,7 @@
 .card-category-header img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .card-category-body {
@@ -82,13 +82,13 @@
 }
 
 .card-item {
-
     background-color: #ffffff !important;
     border-radius: 1rem;
     padding: 1rem;
     margin-top: 1rem;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
     max-width: 100% !important;
+    min-height: 12rem;
 }
 
 .card-item-header {

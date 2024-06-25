@@ -7,7 +7,8 @@ import { findByCategory } from '../../services/articoli.mjs'
 import { CACHE_DURATION } from '../../utils/cache-optimize'
 import { useState, useEffect } from 'react'
 
-const Panini = () => {
+
+const Bibite = () => {
 
     const [loading, setLoading] = useState(false)
     const [prodotti, setProdotti] = useState([])
@@ -16,8 +17,8 @@ const Panini = () => {
 
         setLoading(true);
 
-        const cachedData = localStorage.getItem('paniniItems')
-        const cachedTime = localStorage.getItem('paniniItemsTime')
+        const cachedData = localStorage.getItem('bibiteItems')
+        const cachedTime = localStorage.getItem('bibiteItemsTime')
 
         const now = new Date().getTime()
 
@@ -25,10 +26,10 @@ const Panini = () => {
             setProdotti(JSON.parse(cachedData))
             setLoading(false)
         } else {
-            const res = await findByCategory('Panini')
+            const res = await findByCategory('Bibite')
             setProdotti(res)
-            localStorage.setItem('paniniItems', JSON.stringify(res))
-            localStorage.setItem('paniniItemsTime', now)
+            localStorage.setItem('bibiteItems', JSON.stringify(res))
+            localStorage.setItem('bibiteItemsTime', now)
             setLoading(false)
         }
     }
@@ -40,14 +41,8 @@ const Panini = () => {
     return (
         <>
             <Container className='d-flex flex-column align-items-center justify-content-center'>
-
-
-                <CardCategory name="Panini" />
-
-                <div className='w-100 bg-white rounded-4 m-3'>
-                    <p className='text-center m-3' style={{fontFamily: 'Montserrat'}}>I panini sono preparati <b>artigianalmente</b> da noi, per garantire un gusto unico e inconfondibile.</p>
-                </div>
-
+                
+                <CardCategory name="Bibite"/>
                 {loading && <p>Caricamento...</p>}
                 <Row className='w-100'>
                     {prodotti.map((item, index) => (
@@ -62,4 +57,4 @@ const Panini = () => {
     )
 }
 
-export default Panini
+export default Bibite

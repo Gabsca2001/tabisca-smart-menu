@@ -14,7 +14,11 @@ const HomePage = () => {
         </div>
         <div className='d-flex justify-content-center align-items-center'>
           <div className="hero-content">
-            <p className='mt-4'>La nostra pizzeria è famosa per la sua pizza, preparata con ingredienti di alta qualità e cotta in forno a legna.<br/><br/> Siamo aperti tutti i giorni dalle 17:00 alle 02:00. Vi aspettiamo!</p>
+            <p className='mt-4'>
+              La nostra è una <b>ventennale azienda di famiglia</b> in cui siamo cresciuti come professionisti.<br/>
+              Puntiamo da sempre all'alta qualità dei nostri ingredienti, riservando al cliente un trattamento di particolare ospitalità. <br/><br/>
+              Vieni a scoprire di più…
+              </p>
             <div className="hero-buttons">
               <Button variant="outline-light" className='rounded-0' as={Link} to='/menu/antipasti'>Scopri il nostro menu</Button>
               <Button variant="light" className='rounded-0 d-flex justify-content-center align-items-center' as={Link} to='tel:+390917793195'>
@@ -71,7 +75,8 @@ const HomePage = () => {
         >
           <h2 style={{ fontFamily: 'Playwrite TZ' }} className='mb-4'>Scopri tutto il resto</h2>
           <p>
-            Oltre alla pizza, la nostra pizzeria offre una vasta selezione di piatti, tra cui hamburger, panini, focacce, pinse e molto altro.<br/><br/> Venite a trovarci e scoprite il nostro menu!
+            Oltre alla pizza, rigorosamente <b>cotta a legna</b>, il nostro locale vi offre un'ampia scelta culinaria:<br />
+            Focacce, panini, hamburger, pinse e varie stuzzicherie da gustare in loco o da prenotare con il <b>servizio da asporto</b>.
           </p>
         </Col>
       </Row>

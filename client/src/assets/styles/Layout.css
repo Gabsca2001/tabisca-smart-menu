@@ -37,7 +37,7 @@
     margin-bottom: 2rem;
 }
 
-.hero-overlay img{
+.hero-overlay img {
     width: 100%;
     max-width: 400px;
 }
@@ -64,9 +64,11 @@
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -110,23 +112,24 @@
 .fixed-dimensions {
     width: 100%;
     height: auto;
-    max-height: 500px; /* Adjust max height as needed */
+    max-height: 500px;
+    /* Adjust max height as needed */
     object-fit: cover;
 }
 
-.custom-row{
+.custom-row {
     font-family: 'Montserrat', sans-serif;
-    background: radial-gradient(circle, rgb(15,44,100) 0%, rgb(7, 19, 43) 100%);
+    background: radial-gradient(circle, rgb(15, 44, 100) 0%, rgb(7, 19, 43) 100%);
 
 }
 
-.custom-row.n2{
+.custom-row.n2 {
     font-family: 'Montserrat', sans-serif;
     background: radial-gradient(circle, rgb(77, 20, 20) 0%, rgb(49, 19, 19) 100%);
 
 }
 
-.custom-col{
+.custom-col {
     width: 100%;
     background: rgb(255, 255, 255);
     display: flex;
@@ -137,20 +140,20 @@
     overflow: hidden;
 }
 
-.custom-col.n1{
+.custom-col.n1 {
     background: rgb(255, 255, 255);
     background: radial-gradient(circle, rgb(139, 137, 97) 0%, rgb(148, 123, 79) 100%);
     border-bottom-left-radius: 2rem;
 }
 
-.custom-col.n2{
+.custom-col.n2 {
     background: rgb(255, 255, 255);
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
     background: radial-gradient(circle, rgb(37, 56, 73) 0%, rgb(71, 33, 33) 100%);
 }
 
-.custom-col.n3{
+.custom-col.n3 {
     background: rgb(255, 255, 255);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
@@ -160,7 +163,7 @@
 
 
 
-.custom-col img{
+.custom-col img {
     width: 50%;
     height: 50%;
     max-height: 500px;
@@ -170,7 +173,7 @@
     margin: 0 1rem;
 }
 
-.hero-storia{
+.hero-storia {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -203,12 +206,12 @@
     z-index: 2;
 }
 
-.custom-row-storia{
+.custom-row-storia {
     font-family: 'Montserrat', sans-serif;
 }
 
-.custom-col-storia{
-    background: radial-gradient(circle, rgb(15,44,100) 0%, rgb(7, 19, 43) 100%);
+.custom-col-storia {
+    background: radial-gradient(circle, rgb(15, 44, 100) 0%, rgb(7, 19, 43) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,7 +220,7 @@
     border-bottom-left-radius: 2rem;
 }
 
-.custom-col-storia img{
+.custom-col-storia img {
     width: 50%;
     max-height: 400px;
     object-fit: cover;
@@ -226,7 +229,7 @@
     border-radius: 2rem;
 }
 
-.row-video{
+.row-video {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -255,11 +258,61 @@
     z-index: 2;
 }
 
-.video-overlay video{
+.video-overlay video {
     width: auto;
     max-height: 600PX;
     border-radius: 2rem;
     box-shadow: 0 15px 20px rgba(9, 7, 22, 0.479);
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0a1441;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cookie-banner.hide {
+    transform: translateY(100%);
+}
+
+.cookie-banner p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.cookie-button {
+    background-color: #cab32e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cookie-button:hover {
+    background-color: #000000;
 }
 
 
@@ -285,29 +338,29 @@
         display: none;
     }
 
-    .custom-col.n1{
+    .custom-col.n1 {
         border-top-left-radius: 2rem;
         margin-left: 1rem;
     }
 
-    .custom-col.n2{
+    .custom-col.n2 {
         margin-right: 1rem;
     }
 
-    .custom-col.n3{
+    .custom-col.n3 {
         margin-left: 1rem;
     }
 
-    .hero-storia{
+    .hero-storia {
         min-height: 35vh;
     }
 
-    .custom-col-storia.n1{
+    .custom-col-storia.n1 {
         padding: 0;
         margin: 0;
     }
 
-    .custom-col-storia{
+    .custom-col-storia {
         border-top-left-radius: 2rem;
     }
 

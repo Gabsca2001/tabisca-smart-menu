@@ -18,6 +18,15 @@ import Reserved from '../components/reserved/Reserved'
 import ReservedPage from '../views/reserved/ReservedPage'
 import PrimaPagina from '../views/menu/PrimaPagina'
 import EditItem from '../views/reserved/EditItem'
+import Impasti from '../views/menu/Impasti.jsx'
+import PizzeClassiche from '../views/menu/PizzeClassiche.jsx'
+import PizzeGourmet from '../views/menu/PizzeGourmet.jsx'
+import Dolci from '../views/menu/Dolci.jsx'
+import Bibite from '../views/menu/Bibite.jsx'
+import Allergeni from '../views/menu/Allergeni.jsx'
+import CookiePolicy from '../views/CookiePolicy'
+import PrivacyPolicy from '../views/PrivacyPolicy.jsx'
+import TerminiCondizioni from '../views/TerminiCondizioni.jsx'
 
 
 const CheckAuthRoute = ({ children }) => {
@@ -57,6 +66,18 @@ const router = createBrowserRouter(
                             path: '/login',
                             element: <Login />
                         },
+                        {
+                            path: 'cookie-policy',
+                            element: <CookiePolicy />
+                        },
+                        {
+                            path: 'privacy-policy',
+                            element: <PrivacyPolicy />
+                        },
+                        {
+                            path: 'termini-e-condizioni',
+                            element: <TerminiCondizioni />
+                        },
                     ],
                 },
                 {
@@ -77,6 +98,30 @@ const router = createBrowserRouter(
                         {
                             path: '/menu/pinse',
                             element: <Pinse />
+                        },
+                        {
+                            path: '/menu/impasti',
+                            element: <Impasti />
+                        },
+                        {
+                            path: '/menu/pizze-classiche',
+                            element: <PizzeClassiche />
+                        },
+                        {
+                            path: '/menu/pizze-gourmet',
+                            element: <PizzeGourmet />
+                        },
+                        {
+                            path: '/menu/dolci',
+                            element: <Dolci />
+                        },
+                        {
+                            path: '/menu/bibite',
+                            element: <Bibite />
+                        },
+                        {
+                            path: '/menu/elenco-allergeni',
+                            element: <Allergeni />
                         }
                     ]
                 },

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Home page -->
+  <url>
+    <loc>https://www.latabisca.it/</loc>
+    <lastmod>2024-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Menu page -->
+  <url>
+    <loc>https://www.latabisca.it/menu</loc>
+    <lastmod>2024-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- About Us page -->
+  <url>
+    <loc>https://www.latabisca.it/storia</loc>
+    <lastmod>2024-06-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+    <!-- antipasti -->
+    <url>
+        <loc>https://www.latabisca.it/menu/antipasti</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- panini -->
+    <url>
+        <loc>https://www.latabisca.it/menu/panini</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- impasti -->
+    <url>
+        <loc>https://www.latabisca.it/menu/impasti</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- pinse -->
+    <url>
+        <loc>https://www.latabisca.it/menu/pinse</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- pizze classiche -->
+    <url>
+        <loc>https://www.latabisca.it/menu/pizze-classiche</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- pizze gourmet -->
+    <url>
+        <loc>https://www.latabisca.it/menu/pizze-gourmet</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- dolci -->
+    <url>
+        <loc>https://www.latabisca.it/menu/dolci</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- bevande -->
+    <url>
+        <loc>https://www.latabisca.it/menu/bibite</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- elenco allergeni -->
+    <url>
+        <loc>https://www.latabisca.it/menu/elenco-allergeni</loc>
+        <lastmod>2024-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+
+</urlset>

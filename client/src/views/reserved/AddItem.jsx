@@ -4,11 +4,24 @@ import { categories } from '../../utils/categories';
 import { uploadImage } from '../../services/storage';
 import { add } from '../../services/articoli.mjs';
 import { Link } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
+import { allergens } from '../../utils/food';
 
 const AddItem = () => {
+
+    const allergeniList = allergens;
+    const [selectedAllergeni, setSelectedAllergeni] = useState([]);
+
+    const handleCheckboxChange = (allergenId) => {
+        setSelectedAllergeni((prevSelected) =>
+            prevSelected.includes(allergenId)
+                ? prevSelected.filter(id => id !== allergenId)
+                : [...prevSelected, allergenId]
+        );
+    };
+
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [allergeni, setAllergeni] = useState('');
     const [image, setImage] = useState(null);
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
@@ -23,7 +36,7 @@ const AddItem = () => {
         e.preventDefault();
 
         //check if all fields are filled
-        if (!name || !description || !image || !price || !category ) {
+        if (!name || !description || !price || !category) {
             setError('Perfavore riempi tutti i campi');
             return;
         }
@@ -35,50 +48,77 @@ const AddItem = () => {
         }
 
         //check if image is a valid file
-        if (!image.type.includes('image')) {
-            setError('Perfavore inserisci un file immagine valido');
-            return;
-        }
+        if (image) {
+            if (!image.type.includes('image')) {
+                setError('Perfavore inserisci un file immagine valido');
+                return;
+            }
+            setLoading('Inserimento in corso...');
+            uploadImage(image)
+                .then((url) => {
+                    //add item to firestore
 
-        setLoading('Inserimento in corso...');
-        //upload image to firebase storage
-        uploadImage(image)
-            .then((url) => {
-                //add item to firestore
-
-                add({
-                    nome: name,
-                    descrizione: description,
-                    allergeni: allergeni,
-                    image: url,
-                    prezzo: parseFloat(price),
-                    categoria: category,
-                })
-                    .then(() => {
-                        setName('');
-                        setDescription('');
-                        setAllergeni('');
-                        setImage(null);
-                        setImagePreview('');
-                        setPrice('');
-                        setCategory('');
-                        setImagePreview('');
-                        setError('');
-                        setLoading('Inserimento completato');
+                    add({
+                        nome: name,
+                        descrizione: description,
+                        allergeni: selectedAllergeni,
+                        image: url,
+                        prezzo: parseFloat(price),
+                        categoria: category,
                     })
-                    .catch((error) => {
-                        console.error(error);
-                        setError('Errore durante l\'aggiunta dell\'articolo');
-                        setLoading('Errore durante l\'aggiunta dell\'articolo');
-                    });
+                        .then(() => {
+                            setName('');
+                            setDescription('');
+                            setSelectedAllergeni([]);
+                            setImage(null);
+                            setImagePreview('');
+                            setPrice('');
+                            setCategory('');
+                            setImagePreview('');
+                            setError('');
+                            setLoading('Inserimento completato');
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                            setError('Errore durante l\'aggiunta dell\'articolo');
+                            setLoading('Errore durante l\'aggiunta dell\'articolo');
+                        });
+                })
+                .catch((error) => {
+                    setError('Errore durante il caricamento dell\'immagine');
+                    setLoading('Errore durante il caricamento dell\'immagine');
+                    console.error(error);
+                });
+        } else {
+            setLoading('Inserimento in corso...');
+            add({
+                nome: name,
+                descrizione: description,
+                allergeni: selectedAllergeni,
+                image: null,
+                prezzo: parseFloat(price),
+                categoria: category,
             })
-            .catch((error) => {
-                setError('Errore durante il caricamento dell\'immagine');
-                setLoading('Errore durante il caricamento dell\'immagine');
-                console.error(error);
-            });
+                .then(() => {
+                    setName('');
+                    setDescription('');
+                    setSelectedAllergeni([]);
+                    setImage(null);
+                    setImagePreview('');
+                    setPrice('');
+                    setCategory('');
+                    setImagePreview('');
+                    setError('');
+                    setLoading('Inserimento completato');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    setError('Errore durante l\'aggiunta dell\'articolo');
+                    setLoading('Errore durante l\'aggiunta dell\'articolo');
+                });
 
 
+        }
 
     };
 
@@ -130,13 +170,19 @@ const AddItem = () => {
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='formBasicAllergeni'>
                         <Form.Label>Allergeni</Form.Label>
-                        <Form.Control
-
-                            type='text'
-                            placeholder='Inserisci allergeni'
-                            value={allergeni}
-                            onChange={(e) => setAllergeni(e.target.value)}
-                        />
+                        <Row className='rounded-2 p-2' style={{ backgroundColor: '#f8f9fa' }}>
+                            {allergeniList.map((allergen) => (
+                                <Col xs={6} md={4} key={allergen.id}>
+                                    <Form.Check
+                                        type='checkbox'
+                                        id={`allergen-${allergen.id}`}
+                                        label={allergen.name}
+                                        checked={selectedAllergeni.includes(allergen.id)}
+                                        onChange={() => handleCheckboxChange(allergen.id)}
+                                    />
+                                </Col>
+                            ))}
+                        </Row>
                     </Form.Group>
 
                     {imagePreview && (
@@ -147,7 +193,7 @@ const AddItem = () => {
                         />
                     )}
                     <Form.Group className='mb-3' controlId='formBasicImage'>
-                        <Form.Label>Immagine *</Form.Label>
+                        <Form.Label>Immagine </Form.Label>
                         <Form.Control
                             type='file'
                             onChange={handleImageChange}
@@ -170,7 +216,7 @@ const AddItem = () => {
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                         >
-                            <option value=''>Selziona categoria</option>
+                            <option value=''>Seleziona categoria</option>
                             {categories.map((category) => (
                                 <option key={category.name} value={category.name}>
                                     {category.name}

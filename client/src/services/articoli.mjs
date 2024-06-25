@@ -28,6 +28,7 @@ export const findByCategory = async (category) => {
     try {
         const doc_refs = await getDocs(collection(db, collection_name));
         const res = doc_refs.docs.map(doc => doc.data()).filter(doc => doc.categoria === category);
+        
         return res;
     } catch (error) {
         console.error("Error fetching documents: ", error);

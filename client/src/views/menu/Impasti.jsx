@@ -7,7 +7,7 @@ import { findByCategory } from '../../services/articoli.mjs'
 import { CACHE_DURATION } from '../../utils/cache-optimize'
 import { useState, useEffect } from 'react'
 
-const Panini = () => {
+const Impasti = () => {
 
     const [loading, setLoading] = useState(false)
     const [prodotti, setProdotti] = useState([])
@@ -16,8 +16,8 @@ const Panini = () => {
 
         setLoading(true);
 
-        const cachedData = localStorage.getItem('paniniItems')
-        const cachedTime = localStorage.getItem('paniniItemsTime')
+        const cachedData = localStorage.getItem('impastiItems')
+        const cachedTime = localStorage.getItem('impastiItemsTime')
 
         const now = new Date().getTime()
 
@@ -25,10 +25,10 @@ const Panini = () => {
             setProdotti(JSON.parse(cachedData))
             setLoading(false)
         } else {
-            const res = await findByCategory('Panini')
+            const res = await findByCategory('I nostri impasti')
             setProdotti(res)
-            localStorage.setItem('paniniItems', JSON.stringify(res))
-            localStorage.setItem('paniniItemsTime', now)
+            localStorage.setItem('impastiItems', JSON.stringify(res))
+            localStorage.setItem('impastiItemsTime', now)
             setLoading(false)
         }
     }
@@ -38,15 +38,10 @@ const Panini = () => {
     }, [])
 
     return (
-        <>
-            <Container className='d-flex flex-column align-items-center justify-content-center'>
+        <Container className='d-flex flex-column align-items-center justify-content-center'>
 
 
-                <CardCategory name="Panini" />
-
-                <div className='w-100 bg-white rounded-4 m-3'>
-                    <p className='text-center m-3' style={{fontFamily: 'Montserrat'}}>I panini sono preparati <b>artigianalmente</b> da noi, per garantire un gusto unico e inconfondibile.</p>
-                </div>
+                <CardCategory name="I nostri impasti" />
 
                 {loading && <p>Caricamento...</p>}
                 <Row className='w-100'>
@@ -58,8 +53,7 @@ const Panini = () => {
                     }
                 </Row>
             </Container>
-        </>
     )
 }
 
-export default Panini
+export default Impasti

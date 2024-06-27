@@ -12,7 +12,8 @@ function App() {
 
   return (
       <UIContext.Provider value={{ selectedItem, setSelectedItem }}>
-        <RouterProvider router={router} />
+        <RouterProvider router={router}>
+        </RouterProvider>
       </UIContext.Provider>
   );
 }

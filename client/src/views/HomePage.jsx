@@ -99,7 +99,43 @@ const HomePage = () => {
       </Row>
 
       <Row className='m-0 p-0 pb-4 pt-4 custom-row n2'>
-        <Col md={6} className="d-flex justify-content-center align-items-center m-0 p-4 order-last order-md-first">
+        <Col md={6} className="d-flex justify-content-center align-items-center m-0 p-0 order-last order-md-first">
+          <div className='custom-col n4'>
+            <img src="/assets/images/locale.jpeg" alt="locale" style={{width: '100% !important', maxHeight: '500px', minWidth: '300px', minHeight: '300px'}}/>
+          </div>
+        </Col>
+        <Col md={6} className="d-flex flex-column justify-content-center p-5 text-light">
+          <h2 style={{ fontFamily: 'Playwrite TZ' }} className='mb-4'>Il nostro locale</h2>
+          <p>
+            La Tabisca è un locale accogliente e moderno. Il nostro staff è sempre pronto ad accogliervi con un sorriso e a soddisfare ogni vostra richiesta.
+          </p>
+        </Col>
+      </Row>
+
+      <Row className='m-0 p-0 pb-4 pt-4 custom-row n2'>
+        <Col md={6} className="d-flex flex-column justify-content-center p-5 text-md-start text-lg-end text-sm-start text-light ">
+          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4'>Come raggiungerci</h2>
+
+          <div className="d-flex align-items-center align-self-lg-end align-self-md-start align-items-sm-start mb-3">
+            <img src="/assets/icons/placeholder.png" alt="location" width='24px' className="me-2" />
+            <p className="mb-0">Via Roma 42, San Cipirello (PA)</p>
+          </div>
+          <Button variant="outline-light" className='d-block rounded-0 mt-2 align-self-lg-end align-self-md-start align-items-sm-start mb-4' style={{ width: 'max-content' }} as={Link} to='https://maps.app.goo.gl/eYGjV8xoKDrh8sCs8'>Apri su mappa</Button>
+
+          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4 mt-3'>Orari di apertura</h2>
+          <div className="d-flex align-items-center mb-3 align-self-lg-end align-self-md-start align-items-sm-start">
+            <img src="/assets/icons/clock.png" alt="location" width='24px' className="me-2" />
+            <p className="mb-0">Aperti tutti i giorni dalle 17:00 alle 02:00</p>
+          </div>
+
+          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4 mt-3' id="contatti">Contatti</h2>
+          <div className="d-flex align-items-center mb-3 align-self-lg-end align-self-md-start align-items-sm-start">
+            <img src="/assets/icons/phone.png" alt="location" width='24px' className="me-2" />
+            <Link to='tel:+390917793195' className="mb-0 text-light">+39 0917793195</Link>
+          </div>
+
+        </Col>
+        <Col md={6} className="d-flex justify-content-center align-items-center m-0 p-4">
           <iframe
             title="maps"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196.59218099215693!2d13.17967422023028!3d37.966045181746324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319f4cc02c5d7d9%3A0x6a155b3aac2470a1!2sVia%20Roma%2C%2042%2C%2090040%20San%20Cipirello%20PA!5e0!3m2!1sit!2sit!4v1719064705150!5m2!1sit!2sit"
@@ -109,28 +145,6 @@ const HomePage = () => {
             allowFullScreen=""
             loading="lazy"
           ></iframe>
-        </Col>
-        <Col md={6} className="d-flex flex-column justify-content-center p-5 text-start text-light ">
-          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4'>Come raggiungerci</h2>
-
-          <div className="d-flex align-items-center mb-3">
-            <img src="/assets/icons/placeholder.png" alt="location" width='24px' className="me-2" />
-            <p className="mb-0">Via Roma 42, San Cipirello (PA)</p>
-          </div>
-          <Button variant="outline-light" className='d-block rounded-0 mt-2 align-self-start mb-4' style={{ width: 'max-content' }} as={Link} to='https://maps.app.goo.gl/eYGjV8xoKDrh8sCs8'>Apri su mappa</Button>
-
-          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4 mt-3'>Orari di apertura</h2>
-          <div className="d-flex align-items-center mb-3">
-            <img src="/assets/icons/clock.png" alt="location" width='24px' className="me-2" />
-            <p className="mb-0">Aperti tutti i giorni dalle 17:00 alle 02:00</p>
-          </div>
-
-          <h2 style={{ fontFamily: 'Montserrat' }} className='mb-4 mt-3' id="contatti">Contatti</h2>
-          <div className="d-flex align-items-center mb-3">
-            <img src="/assets/icons/phone.png" alt="location" width='24px' className="me-2" />
-            <Link to='tel:+390917793195' className="mb-0 text-light">+39 0917793195</Link>
-          </div>
-
         </Col>
       </Row>
 

@@ -27,7 +27,7 @@ import Allergeni from '../views/menu/Allergeni.jsx'
 import CookiePolicy from '../views/CookiePolicy'
 import PrivacyPolicy from '../views/PrivacyPolicy.jsx'
 import TerminiCondizioni from '../views/TerminiCondizioni.jsx'
-
+// import GalleryPage from '../views/GalleryPage'
 
 const CheckAuthRoute = ({ children }) => {
 
@@ -78,6 +78,10 @@ const router = createBrowserRouter(
                             path: 'termini-e-condizioni',
                             element: <TerminiCondizioni />
                         },
+                        // {
+                        //     path: 'gallery',
+                        //     element: <GalleryPage />
+                        // }
                     ],
                 },
                 {

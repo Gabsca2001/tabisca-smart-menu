@@ -1,1 +1,1 @@
-export const CACHE_DURATION = 1 * 60 * 1000;
+export const CACHE_DURATION = 30 * 60 * 1000;

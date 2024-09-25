@@ -1,44 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 const CookieBanner = () => {
     const [showBanner, setShowBanner] = useState(false);
 
     useEffect(() => {
-        // Check if the user has already accepted cookies
+        // Check if the user has already acknowledged the use of essential cookies
         const cookieConsent = Cookies.get('cookieConsent');
         if (!cookieConsent) {
             setShowBanner(true);
         }
     }, []);
 
-    const handleAccept = () => {
-        // Set a cookie to remember the user's consent
-        Cookies.set('cookieConsent', 'true', { expires: 365 });
+    const handleAcknowledge = () => {
+        // Set a cookie to remember the user's acknowledgment
+        Cookies.set('cookieConsent', 'acknowledged', { expires: 365 });
         setShowBanner(false);
     };
 
     if (!showBanner) {
         return null;
     }
-  
-    const rejectCookies = () => {
-      alert('I cookies sono necessari per il funzionamento del sito');
-      // Handle rejection logic here (optional)
 
-    };
-  
     return (
-        <div className={`cookie-banner ${showBanner ? 'show' : ''}`}>
-        <p>Utilizziamo i cookie per garantirti la migliore esperienza sul nostro sito. <Link to='/cookie-policy'>Scopri di più</Link></p>
-        <div className="cookie-buttons">
-          <button className="cookie-button" onClick={handleAccept}>Accetta</button>
-          <button className="cookie-button" onClick={rejectCookies}>Rifiuta</button>
+        <div className="cookie-banner">
+            <Container>
+                <Row>
+                    <Col xs={12} md={8}>
+                        <p>
+                            Questo sito utilizza solo cookie essenziali per garantire il corretto funzionamento. 
+                            Non utilizziamo cookie di tracciamento o di terze parti.{' '}
+                            <Link to='/cookie-policy' style={{ color: 'black', textDecoration: 'underline' }}>
+                                Scopri di più
+                            </Link>.
+                        </p>
+                    </Col>
+                    <Col xs={12} md={4} className="text-md-right">
+                        <Button variant="primary" className="cookie-button" onClick={handleAcknowledge}>
+                            OK
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
         </div>
-      </div>
     );
-  };
-  
-  export default CookieBanner;
+};
+
+export default CookieBanner;
